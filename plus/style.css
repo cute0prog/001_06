@@ -1,0 +1,94 @@
+/* 기본 스타일 */
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #fff;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* 헤더 스타일 */
+header {
+    background-color: #000;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 3px solid white;
+}
+
+/* 섹션 스타일 */
+section {
+    background-color: #ddd;
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    color: #000;
+}
+
+section img {
+    display: block;
+    margin: 10px auto;
+    border-radius: 50%;
+    border: 3px solid black;
+}
+
+/* 내비게이션 스타일 */
+nav {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul a {
+    display: block;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #000;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+nav ul a:hover {
+    background-color: #444;
+}
+
+/* 푸터 스타일 */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #000;
+    color: white;
+}
+
+footer a button {
+    background-color: #fff;
+    color: black;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+footer a button:hover {
+    background-color: #ccc;
+}
+
+/* 추가 스타일 */
+div {
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+}

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학력</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <style>
+        .map {
+            display: flex;
+            /* 가로 정렬 */
+            align-items: center;
+            /* 세로 정렬 */
+            gap: 25px;
+            /* 지도와 글 사이 간격 */
+        }
+        
+
+        .maptext {
+            max-width: 550PX;
+            /* 텍스트 영역 너비 */
+            font-size: 25PX;
+            text-align: left;
+        }
+        
+        ul {
+            text-align: center; /* 리스트 항목을 중앙 정렬 */
+            list-style: none; /* 점 없애기 */
+        }
+
+        li {
+            display: inline-block; /* 가로로 배치 */
+            margin: 10px; /* 여백 추가 */
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>학력</h1>
+        <a href="../index.html">
+            <button>🏠 홈</button>
+        </a>
+    </header>
+
+    <section>
+        <h2>내가 나온 학교를 소개 하겠다.</h2>
+        <ul>
+            <li>
+                <h2>회덕초등학교</h2>
+                <div class="map">
+
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6424.845077847676!2d127.41908756400146!3d36.374763888941075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x356549ca72d840bb%3A0xb32f2b51c119e3d5!2z7ZqM642V7LSI65Ox7ZWZ6rWQ!5e0!3m2!1sko!2skr!4v1748240951917!5m2!1sko!2skr"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <p class="maptext">
+                        대전 대덕구 읍내동현대아파트 근처에 위치한 초등학교이다. 2013년 입학해 2019 졸업했다.
+                    </p>
+                    <a href="https://hoedeokes.djsch.kr/main.do"><br>홈페이지 바로가기기</a>
+                </div>
+            </li>
+            <hr style="border: solid 1px black;">
+            <br>
+            <li>
+                <h2>매봉중학교</h2>
+                <div class="map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3212.6452546156534!2d127.43351747566122!3d36.36937069186716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3565483802a06b05%3A0x88e2d0a7c897d257!2z64yA7KCE66ek67SJ7KSR7ZWZ6rWQ!5e0!3m2!1sko!2skr!4v1748241029519!5m2!1sko!2skr"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <p class="maptext">
+                        대전 대덕구에 위치한 매봉중학교이다. 주변 경사가 가파르다. 옆에 매봉초등학교가 있다. 2019년 입학해 2022년 졸업했다.
+                    </p>
+                    <a href="https://maebongms.djsch.kr/main.do"><br>홈페이지 바로가기기</a>
+                </div>
+            </li>
+            <hr style="border: solid 1px black;">
+            <br>
+            <li>
+                <h2>송촌고등학교</h2>
+                <div class="map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3212.8901463622174!2d127.44335497566095!3d36.36343969219828!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x356548403a65ab27%3A0x17b554a94200bb0e!2z64yA7KCE7Iah7LSM6rOg65Ox7ZWZ6rWQ!5e0!3m2!1sko!2skr!4v1748241076549!5m2!1sko!2skr"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <p class="maptext">
+                        대전 대덕구에 위치한 송촌고등학교이다. 주변에 송촌초등학교,송촌중학교가 있다. 2022년 입학해 2025년 졸업했다.
+                    </p>
+                    <a href="https://songchonhs.djsch.kr/main.do#popupNormal20244"><br>홈페이지 바로가기기</a>
+                </div>
+            </li>
+            <hr style="border: solid 1px black;">
+            <br>
+            <li>
+                <h2>우송대학교</h2>
+                <div class="map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3213.9328154202985!2d127.44322647565974!3d36.338178093607766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x356548f2ba5e76b9%3A0x1f657f2b8b39c4d2!2z7Jqw7Iah64yA7ZWZ6rWQIOyEnOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1748241157072!5m2!1sko!2skr"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <p class="maptext">
+                        대전 동구에 위치한 우송대학교이다. 우송정보대도 있다. 우송정보대는 전문대학교이다. 주변에 우송고등학교도 있다. 주변 시설이 다양하게 있다. 대동역 또한 도보 15분 내로 도착 가능하다. 2025년 입학하여 재학중이다.
+                    </p>
+                    <a href="https://www.wsu.ac.kr/main/index.jsp"><br>홈페이지 바로가기기</a>
+                </div>
+            </li>
+            <hr style="border: solid 1px black;">
+            <br>
+        </ul>
+
+
+    </section>
+
+    <nav>
+        <ul>
+            <a href="사는곳.html">
+                <li>사는 곳</li>
+            </a>
+            <a href="취미.html">
+                <li>취미</li>
+            </a>
+            <a href="학력.html">
+                <li>학력</li>
+            </a>
+            <a href="연락처.html">
+                <li>연락처</li>
+            </a>
+            <a href="프로젝트.html">
+                <li>프로젝트</li>
+            </a>
+            <a href="시간표.html">
+                <li>시간표</li>
+            </a>
+        </ul>
+    </nav>
+
+    <footer>
+        <a href="https://www.wsu.ac.kr"><button>학교</button></a>
+        <a href="https://cs.wsu.ac.kr"><button>학과</button></a>
+        <a href="OIP.png"><button>🔫🔫</button></a>
+        <div style="color: yellow; text-align: center; margin-top: 10px;">홈페이지 바로가기 버튼</div>
+    </footer>
+</body>
+
+</html>

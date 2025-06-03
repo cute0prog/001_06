@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로젝트트</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <style>
+        .tile-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* 자동 크기 조절 */
+    gap: 20px; /* 타일 간격 */
+    justify-content: center;
+}
+
+.tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: black;
+    transition: 0.3s;
+}
+
+.tile:hover {
+    background-color: #ddd;
+    transform: scale(1.05);
+}
+
+.tile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>프로젝트</h1>
+        <a href="../index.html">
+            <button>🏠 홈</button>
+        </a>
+    </header>
+
+    <section>
+        <h2>자바 스크립트로 만든 미니게임</h2>
+        <div class="tile-container">
+            <a href="javagame/game1/g1.html" class="tile">
+                <img src="javagame/game1/g1.png" alt="게임1">
+                <p>벽돌깨기</p>
+            </a>
+            <a href="javagame/game2/g2.html" class="tile">
+                <img src="javagame/game2/g2.png" alt="게임2">
+                <p>스네이크</p>
+            </a>
+            <a href="javagame/game3/g3.html" class="tile">
+                <img src="javagame/game3/g3.png" alt="게임3">
+                <p>핑퐁</p>
+            </a>
+            <a href="javagame/game4/g4.html" class="tile">
+                <img src="javagame/game4/g4.png" alt="게임4">
+                <p>플래피버드</p>
+            </a>
+        </div>
+
+    </section>
+
+    <nav>
+        <ul>
+            <a href="사는곳.html">
+                <li>사는 곳</li>
+            </a>
+            <a href="취미.html">
+                <li>취미</li>
+            </a>
+            <a href="학력.html">
+                <li>학력</li>
+            </a>
+            <a href="연락처.html">
+                <li>연락처</li>
+            </a>
+            <a href="프로젝트.html">
+                <li>프로젝트</li>
+            </a>
+            <a href="시간표.html">
+                <li>시간표</li>
+            </a>
+        </ul>
+    </nav>
+
+    <footer>
+        <a href="https://www.wsu.ac.kr"><button>학교</button></a>
+        <a href="https://cs.wsu.ac.kr"><button>학과</button></a>
+        <a href="OIP.png"><button>🔫🔫</button></a>
+        <div style="color: yellow; text-align: center; margin-top: 10px;">홈페이지 바로가기 버튼</div>
+    </footer>
+</body>
+
+</html>

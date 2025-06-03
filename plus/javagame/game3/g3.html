@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Pong 게임</title>
+  <style>
+    body { margin: 0; background: #000; }
+    canvas { display: block; margin: auto; background: #111; }
+  </style>
+</head>
+<body>
+  <canvas id="pongCanvas" width="600" height="400"></canvas>
+  <script>
+    const canvas = document.getElementById("pongCanvas");
+    const ctx = canvas.getContext("2d");
+
+    const paddleWidth = 10, paddleHeight = 80, ballRadius = 8;
+    const player = { x: 0, y: canvas.height / 2 - paddleHeight / 2, score: 0 };
+    const ai = { x: canvas.width - paddleWidth, y: canvas.height / 2 - paddleHeight / 2, score: 0 };
+    let ball = { x: canvas.width / 2, y: canvas.height / 2, dx: 4, dy: 4 };
+
+    canvas.addEventListener("mousemove", movePaddle);
+    function movePaddle(e) {
+      let rect = canvas.getBoundingClientRect();
+      player.y = e.clientY - rect.top - paddleHeight / 2;
+    }
+
+    function drawRect(x, y, w, h, color) {
+      ctx.fillStyle = color;
+      ctx.fillRect(x, y, w, h);
+    }
+    function drawCircle(x, y, r, color) {
+      ctx.fillStyle = color;
+      ctx.beginPath();
+      ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.closePath();
+      ctx.fill();
+    }
+    function drawDivider() {
+      for (let i = 0; i < canvas.height; i += 30) {
+        drawRect(canvas.width / 2 - 1, i, 2, 15, "white");
+      }
+    }
+    function resetBall() {
+      ball.x = canvas.width / 2;
+      ball.y = canvas.height / 2;
+      ball.dx = -ball.dx;
+      ball.dy = 4 * (Math.random() > 0.5 ? 1 : -1);
+    }
+    function collisionDetect(rect, ball) {
+      return ball.x - ballRadius < rect.x + paddleWidth &&
+             ball.x + ballRadius > rect.x &&
+             ball.y - ballRadius < rect.y + paddleHeight &&
+             ball.y + ballRadius > rect.y;
+    }
+    function update() {
+      ball.x += ball.dx;
+      ball.y += ball.dy;
+
+      // 상하 충돌
+      if (ball.y + ballRadius > canvas.height || ball.y - ballRadius < 0) ball.dy = -ball.dy;
+
+      // AI 패들 이동
+      let aiCenter = ai.y + paddleHeight / 2;
+      if (aiCenter < ball.y - 35) ai.y += 4;
+      else if (aiCenter > ball.y + 35) ai.y -= 4;
+
+      // 플레이어 패들 충돌
+      if (collisionDetect(player, ball)) {
+        ball.dx = -ball.dx;
+        ball.x = player.x + paddleWidth + ballRadius;
+      }
+      // AI 패들 충돌
+      if (collisionDetect(ai, ball)) {
+        ball.dx = -ball.dx;
+        ball.x = ai.x - ballRadius;
+      }
+
+      // 점수 및 공 리셋
+      if (ball.x < 0) {
+        ai.score++;
+        resetBall();
+      } else if (ball.x > canvas.width) {
+        player.score++;
+        resetBall();
+      }
+    }
+    function render() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawRect(0, 0, canvas.width, canvas.height, "#000");
+      drawDivider();
+      drawRect(player.x, player.y, paddleWidth, paddleHeight, "white");
+      drawRect(ai.x, ai.y, paddleWidth, paddleHeight, "white");
+      drawCircle(ball.x, ball.y, ballRadius, "white");
+      ctx.fillStyle = "white";
+      ctx.font = "32px Arial";
+      ctx.fillText(player.score, canvas.width / 4, 50);
+      ctx.fillText(ai.score, (3 * canvas.width) / 4, 50);
+    }
+    function gameLoop() {
+      update();
+      render();
+      requestAnimationFrame(gameLoop);
+    }
+    gameLoop();
+  </script>
+</body>
+</html>

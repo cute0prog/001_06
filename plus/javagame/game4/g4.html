@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>플래피 버드 클론</title>
+  <style>
+    body {
+      margin: 0;
+      background: #70c5ce;
+      overflow: hidden;
+    }
+    canvas {
+      display: block;
+      margin: auto;
+      background: #70c5ce;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="flappyCanvas" width="320" height="480"></canvas>
+  <script>
+    const canvas = document.getElementById("flappyCanvas");
+    const ctx = canvas.getContext("2d");
+    let frames = 0;
+    const DEGREE = Math.PI/180;
+    
+    // 게임 상태
+    const state = { current: 0, getReady: 0, game: 1, over: 2 };
+    
+    // 마우스 클릭/터치로 제어
+    canvas.addEventListener("click", function(){
+      if (state.current === state.getReady) state.current = state.game;
+      else if (state.current === state.game) bird.flap();
+      else if (state.current === state.over) {
+        state.current = state.getReady;
+        bird.speedReset();
+        pipes.reset();
+      }
+    });
+    
+    // 새 객체
+    const bird = {
+      x: 50,
+      y: 150,
+      width: 34,
+      height: 26,
+      gravity: 0.25,
+      jump: 4.6,
+      speed: 0,
+      rotation: 0,
+      flap: function(){ this.speed = -this.jump; },
+      update: function() {
+        if (state.current === state.getReady) {
+          this.y = 150;
+          this.rotation = 0;
+        } else {
+          this.speed += this.gravity;
+          this.y += this.speed;
+          if (this.y + this.height/2 >= canvas.height - 112) {
+            this.y = canvas.height - 112 - this.height/2;
+            if (state.current === state.game) state.current = state.over;
+          }
+        }
+      },
+      speedReset: function(){ this.speed = 0; },
+      draw: function() {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.rotation);
+        ctx.fillStyle = "yellow";
+        ctx.fillRect(-this.width/2, -this.height/2, this.width, this.height);
+        ctx.restore();
+      }
+    };
+    
+    // 파이프 객체
+    const pipes = {
+      position: [],
+      width: 50,
+      gap: 120,
+      maxYPos: -150,
+      dx: 2,
+      reset: function(){ this.position = []; },
+      update: function(){
+        if (state.current !== state.game) return;
+        if (frames % 100 === 0) {
+          this.position.push({ x: canvas.width, y: this.maxYPos * (Math.random() + 1) });
+        }
+        for (let i = 0; i < this.position.length; i++){
+          let p = this.position[i];
+          p.x -= this.dx;
+          // 충돌 체크
+          if (bird.x + bird.width/2 > p.x && bird.x - bird.width/2 < p.x + this.width) {
+            if (bird.y - bird.height/2 < p.y + 200 || bird.y + bird.height/2 > p.y + 200 + this.gap) {
+              state.current = state.over;
+            }
+          }
+          if (p.x + this.width <= 0) this.position.shift();
+        }
+      },
+      draw: function(){
+        for (let i = 0; i < this.position.length; i++){
+          let p = this.position[i];
+          ctx.fillStyle = "green";
+          // 상단 파이프
+          ctx.fillRect(p.x, p.y, this.width, 200);
+          // 하단 파이프
+          ctx.fillRect(p.x, p.y + 200 + this.gap, this.width, canvas.height - (p.y + 200 + this.gap + 112));
+        }
+      }
+    };
+    
+    function draw() {
+      ctx.fillStyle = "#70c5ce";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      
+      pipes.draw();
+      bird.draw();
+      
+      // 점수 표시 (게임 중일 때만)
+      ctx.fillStyle = "white";
+      ctx.font = "35px Arial";
+      if (state.current === state.game) ctx.fillText("Score: " + Math.floor(frames/100), 10, 50);
+    }
+    
+    function update() {
+      bird.update();
+      pipes.update();
+    }
+    
+    function loop() {
+      update();
+      draw();
+      frames++;
+      requestAnimationFrame(loop);
+    }
+    
+    loop();
+  </script>
+</body>
+</html>

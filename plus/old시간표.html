@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시간표</title>
+    <style>
+        /* 기본 스타일 */
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #fff;
+            color: #000;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        /* 헤더 스타일 */
+        h1 {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            font-size: 45px;
+            margin: 0;
+            border-bottom: 3px solid #000;
+        }
+
+        /* 테이블 스타일 */
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #eee;
+            border-radius: 10px;
+        }
+
+        th,
+        td {
+            padding: 20px;
+            font-size: 18px;
+            border: 1px solid #000;
+            text-align: center;
+        }
+
+        th {
+            background-color: #000;
+            color: #fff;
+        }
+
+        td {
+            background-color: #ddd;
+        }
+
+        /* 요일 색상 */
+        td[rowspan] {
+            color: #000;
+            font-weight: bold;
+            background-color: #ccc;
+        }
+
+        /* 점심시간 스타일 */
+        th[colspan="4"] {
+            background-color: #aaa;
+            color: #000;
+            font-weight: bold;
+        }
+
+        /* 공강 스타일 */
+        td[rowspan="10"] {
+            background-color: #888;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>나의 시간표</h1>
+    <a href="../index.html">
+        <button>🏠 홈</button>
+    </a>
+    <table>
+        <tr>
+            <th colspan="6">시간표</th>
+        </tr>
+        <tr>
+            <th>/</th>
+            <th>월</th>
+            <th>화</th>
+            <th>수</th>
+            <th>목</th>
+            <th>금</th>
+        </tr>
+        <tr>
+            <td>9:00</td>
+            <td></td>
+            <td rowspan="3">웹프로그래밍</td>
+            <td rowspan="3">인공지능과컴퓨터</td>
+            <td></td>
+            <td rowspan="10">공강</td>
+        </tr>
+        <tr>
+            <td>10:00</td>
+            <td rowspan="2">영어</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>11:00</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>12:00</td>
+            <th colspan="4">점심시간</th>
+        </tr>
+        <tr>
+            <td>13:00</td>
+            <td rowspan="3">C프로그래밍</td>
+            <td rowspan="3">컴퓨터사고와프로그래밍</td>
+            <td></td>
+            <td rowspan="2">영어</td>
+        </tr>
+        <tr>
+            <td>14:00</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>15:00</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>16:00</td>
+            <td></td>
+            <td></td>
+            <td rowspan="2">제4차산업혁명론</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>17:00</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</body>
+
+</html>
